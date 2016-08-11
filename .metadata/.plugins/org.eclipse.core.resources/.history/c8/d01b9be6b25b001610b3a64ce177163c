@@ -1,0 +1,45 @@
+package mergesort;
+
+public class mergesort {
+	public int[] merge(int[] a, int i , int j , int k){
+		int len = k - i + 1;
+		int b[] = new int[len];
+		int ind = 0;
+		int mid = j;
+		int str = i;
+		while (ind < len){
+			if (i < mid){
+				if (j < k){
+					if (a[i] < a[j]){
+						b[ind] = a[i];
+						i += 1;
+					}
+					else{
+						b[ind] = a[j];
+						j += 1;
+					}
+				}
+				else{
+					b[ind] = a[i];
+					i += 1;
+				}
+			}
+			else{
+				b[ind] = a[j];
+				j += 1;
+			}
+			ind += 1;
+		}
+		ind = 0;
+		while (ind < len){
+			a[str] = b[ind];
+			ind += 1;
+			str += 1;
+		}
+		return a;
+	}
+	
+	public static void main(String args[]){
+		int a[1,3,5,7,2,4,6,8];
+	}
+}
